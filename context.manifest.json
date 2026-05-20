@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "bioluminescent-systems",
+  "name": "Bioluminescent Systems",
+  "description": "Four mathematical pattern engines — Gray-Scott reaction-diffusion, Fitzhugh-Nagumo excitable media, fluid advection-diffusion, and Kuramoto phase synchronization — generating the visual language of bioluminescence: glowing coral lattices, traveling pulse rings, light in moving water, and synchronized flash storms.",
+  "tags": [
+    "reaction-diffusion",
+    "turing-patterns",
+    "excitable-media",
+    "fluid-dynamics",
+    "coupled-oscillators",
+    "bioluminescence",
+    "gray-scott",
+    "fitzhugh-nagumo",
+    "kuramoto",
+    "advection-diffusion",
+    "deep-ocean",
+    "emergent",
+    "gpgpu",
+    "ping-pong-fbo"
+  ],
+  "files": [
+    "README.md",
+    "repo_seed.txt"
+  ],
+  "ai_hints": {
+    "primary_vibe": "dark ocean floor — pure bioluminescent emission against absolute black, light that is generated not reflected, patterns that are alive not decorative",
+    "render_target": "Three.js WebGL2 with GPGPU ping-pong FBOs, fullscreen quad passes",
+    "aesthetic_keywords": [
+      "bioluminescent",
+      "deep-ocean",
+      "void-background",
+      "pulse-waves",
+      "reaction-diffusion",
+      "synchronized-flash",
+      "glowing-filaments",
+      "coral-lattice",
+      "spiral-waves",
+      "plankton-bloom"
+    ],
+    "known_variants": [
+      "coral spawn — Gray-Scott F=0.037 k=0.060 hexagonal spot lattice",
+      "deep vein — Gray-Scott F=0.022 k=0.051 labyrinthine branching",
+      "mitosis — Gray-Scott F=0.028 k=0.053 self-replicating spots",
+      "void dissolution — Gray-Scott F=0.014 k=0.054 sparse drifting solitons",
+      "ring storm — Fitzhugh-Nagumo D=0.30 ε=0.020 expanding pulse rings",
+      "spiral lock — Fitzhugh-Nagumo D=0.50 ε=0.010 permanent rotating spirals",
+      "pulse cascade — Fitzhugh-Nagumo D=0.10 ε=0.040 dense rapid wavefronts",
+      "plankton drift — Advection D=0.002 curl-noise GS source term",
+      "vortex garden — Advection D=0.001 explicit vortices point-burst sources",
+      "plankton chaos — Kuramoto K=0.10 incoherent independent twinkling",
+      "bloom nucleation — Kuramoto K=0.80 sync islands forming and merging",
+      "shockwave sync — Kuramoto K=1.50 synchronization front sweeping field",
+      "global pulse — Kuramoto K=3.00 entire field flashing together"
+    ],
+    "interaction_hooks": [
+      "mouse disturbance — inject emission or trigger excitation at cursor position",
+      "mouse drag vortex — create explicit vortex that follows mouse in advection mode",
+      "click to seed — place Gray-Scott initialization seed at click location",
+      "scroll to adjust K — increase/decrease Kuramoto coupling in real time",
+      "spacebar toggle — switch between active simulation engines",
+      "hold shift — pause simulation, keep render output visible"
+    ],
+    "color_palette": {
+      "void": "#000000",
+      "abyss": "#000a14",
+      "deep_navy": "#001a33",
+      "plankton_cyan": "#00b4d8",
+      "bloom_edge": "#0077b6",
+      "electric_teal": "#48cae4",
+      "white_core": "#90e0ef",
+      "peak_bloom": "#caf0f8",
+      "pure_photon": "#ffffff",
+      "jellyfish_violet": "#7b2d8b",
+      "spiral_purple": "#a855f7",
+      "firefly_green": "#a8ff78",
+      "phosphor_amber": "#f4a261"
+    },
+    "layer_order": [
+      "abyss background",
+      "advection-diffusion light field",
+      "gray-scott emission",
+      "fitzhugh-nagumo pulse fronts",
+      "kuramoto synchronized bursts",
+      "bloom pass",
+      "decay trails"
+    ],
+    "post_processing": [
+      "HDR Reinhard tone mapping",
+      "dual Kawase bloom threshold=0.3 levels=4 intensity=0.8",
+      "temporal decay trails factor=0.95",
+      "chromatic aberration ±2px at edges",
+      "vignette radial falloff=0.6",
+      "film grain amplitude=0.03"
+    ],
+    "texture_resolution": "512x512 RGBA32F",
+    "simulation_steps_per_frame": {
+      "gray_scott": 8,
+      "fitzhugh_nagumo": 50,
+      "kuramoto": 1,
+      "advection_diffusion": 1
+    }
+  }
+}
