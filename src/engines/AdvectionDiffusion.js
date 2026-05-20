@@ -169,16 +169,19 @@ export class AdvectionDiffusion {
     }
 
     _buildVortexUniforms() {
-        const arr = [];
+        // Update pre-allocated array in-place (no allocations on hot path)
+        if (!this._vortexArr) {
+            this._vortexArr = Array.from({ length: 8 }, () => new THREE.Vector3());
+        }
         for (let i = 0; i < 8; i++) {
             const v = this.vortices[i];
-            arr.push(new THREE.Vector3(
-                v ? v.x / this.size : 0,
-                v ? v.y / this.size : 0,
-                v ? v.strength      : 0
-            ));
+            if (v) {
+                this._vortexArr[i].set(v.x / this.size, v.y / this.size, v.strength);
+            } else {
+                this._vortexArr[i].set(0, 0, 0);
+            }
         }
-        return arr;
+        return this._vortexArr;
     }
 
     // ── Public API ────────────────────────────────────────────────────────────

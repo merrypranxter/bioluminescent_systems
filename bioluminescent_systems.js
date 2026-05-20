@@ -213,7 +213,8 @@ window.addEventListener('resize', () => {
 });
 
 // ── Animation loop ────────────────────────────────────────────────────────────
-let startTime = performance.now();
+let startTime   = performance.now();
+let lastHUDTime = 0;
 
 function animate() {
     requestAnimationFrame(animate);
@@ -222,8 +223,9 @@ function animate() {
     compositor.update(elapsed, mouse);
     compositor.render();
 
-    // Update HUD order parameter once per ~30 frames
-    if (Math.round(elapsed * 30) % 30 === 0) {
+    // Update HUD once per second
+    if (elapsed - lastHUDTime >= 1.0) {
+        lastHUDTime = elapsed;
         updateHUD();
     }
 }

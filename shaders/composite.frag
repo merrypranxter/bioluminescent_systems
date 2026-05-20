@@ -52,9 +52,9 @@ void main() {
                         vec3(0.0, 0.706, 0.847),
                         advPhi) * uAdvWeight;
 
-    // Gray-Scott: void (#000000) → electric_teal (#48cae4 ≈ 0.282,0.792,0.969)
+    // Gray-Scott: void (#000000) -> electric_teal (#48cae4 = 0.282, 0.792, 0.894)
     vec3 gsColor  = mix(vec3(0.0),
-                        vec3(0.282, 0.792, 0.969),
+                        vec3(0.282, 0.792, 0.894),
                         gsV) * uGSWeight;
 
     // FitzHugh-Nagumo: jellyfish_violet (#7b2d8b) → firefly_green (#a8ff78)

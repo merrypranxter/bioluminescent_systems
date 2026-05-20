@@ -511,11 +511,4 @@ export class BioluminescentCompositor {
         this.renderer.setSize(w, h, false);
         this.outputUniforms.uResolution.value.set(w, h);
     }
-
-    // ── Internal trail init ───────────────────────────────────────────────────
-    _initTrailSwap() {
-        // _trailSwap is now created inline in init(); this is a no-op kept for API compat.
-    }
 }
-
-// No monkey-patch required — _trailSwap is allocated inside init() above.
