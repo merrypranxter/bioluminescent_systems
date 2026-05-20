@@ -17,6 +17,7 @@ uniform vec2      uResolution;
 uniform float     uD_adv;
 uniform float     uTime;
 uniform vec2      uMouse;
+uniform float     uVelScale;
 uniform vec3      uVortices[8];
 uniform int       uNumVortices;
 
@@ -77,7 +78,7 @@ void main() {
     float phi_d = texture(uAdv, wrap(uv + vec2( 0.0,     -texel.y ))).r;
 
     // Curl-noise velocity — divergence-free, scale to ~0–1 pixels/step
-    vec2 vel = curlNoise(uv, uTime) * 0.3;
+    vec2 vel = curlNoise(uv, uTime) * uVelScale;
 
     // Explicit vortex contributions (Biot-Savart, regularised core ε²=0.0001)
     for (int i = 0; i < 8; i++) {

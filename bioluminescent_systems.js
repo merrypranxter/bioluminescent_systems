@@ -18,7 +18,7 @@
 // Part of the merrypranxter/ShaderForge ecosystem.
 // Context source for: https://github.com/merrypranxter/reposcripter2
 
-/* global THREE, canvas, width, height */
+/* global THREE */
 
 import { BioluminescentCompositor } from './src/engines/BioluminescentCompositor.js';
 
