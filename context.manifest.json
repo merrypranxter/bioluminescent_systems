@@ -50,7 +50,7 @@
     "shaders/bloom_down.frag": "Dual Kawase bloom downsample pass — threshold=0.3, 4 levels",
     "shaders/bloom_up.frag": "Dual Kawase bloom upsample pass — intensity=0.8, additive blend with previous level",
     "shaders/decay.frag": "Temporal decay trail pass — trail×0.95 + emit×0.05",
-    "shaders/output.frag": "Final output pass — resolution-dependent UV-space chromatic aberration, Reinhard tone map, vignette 0.6, film grain 0.03",
+    "shaders/output.frag": "Final output pass — chromatic aberration ±2px at corners (pixel-accurate via uResolution), Reinhard tone map, vignette 0.6, film grain 0.03",
     "src/GrayScott.js": "GrayScott class — ping-pong FBO, init with 200-seed scatter, step(), setRegime(name), getTexture()",
     "src/FitzhughNagumo.js": "FitzhughNagumo class — two-arc spiral seed init, step() clamps dt≤0.01, setMode(name), getTexture()",
     "src/KuramotoField.js": "KuramotoField class — GPU readback order parameter via 32×32 downsample, setState(name), step(), getTexture()",
