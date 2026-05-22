@@ -25,9 +25,10 @@ void main() {
     vec4 up     = texture2D(uTexture, uvUp);
     vec4 down   = texture2D(uTexture, uvDown);
 
-    // Unpack phase and frequency
+    // Unpack phase and natural frequency
+    // r: theta packed to [0,1]; g: omega packed via (omega/(TWO_PI*2)) + 0.5
     float theta = center.r * TWO_PI;
-    float omega = center.g * TWO_PI;
+    float omega = (center.g - 0.5) * TWO_PI * 2.0;
 
     // Spatial Laplacian of theta using sin differences to handle wrap-around
     float thetaLeft  = left.r  * TWO_PI;
