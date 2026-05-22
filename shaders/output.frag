@@ -9,12 +9,12 @@ uniform float uBloomIntensity;
 
 void main() {
     // ---- 1. Chromatic aberration ----
-    // offset grows linearly from center to edge (2px at corners)
-    vec2 offset = (vUv - 0.5) * 2.0 / uResolution * 2.0;
+    // offset grows linearly from center, reaching ±2px at corners
+    vec2 offset = (vUv - 0.5) * 2.0 * 2.0 / uResolution;
 
-    float r = texture2D(uTexture, vUv - offset * 0.002).r;
-    float g = texture2D(uTexture, vUv               ).g;
-    float b = texture2D(uTexture, vUv + offset * 0.002).b;
+    float r = texture2D(uTexture, vUv - offset).r;
+    float g = texture2D(uTexture, vUv         ).g;
+    float b = texture2D(uTexture, vUv + offset).b;
 
     vec3 col = vec3(r, g, b);
 
